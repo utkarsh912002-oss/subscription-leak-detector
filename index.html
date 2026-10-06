@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f5f6f2">
+  <title>Subtrack — Subscription Leak Detector</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to content</a>
+  <div class="app-shell">
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="Subtrack home"><span class="brand-mark" aria-hidden="true">S</span><span>subtrack</span></a>
+      <div class="top-actions"><span class="saved-note"><span class="status-dot" aria-hidden="true"></span> Saved on this device</span><button class="theme-toggle" id="theme-toggle" type="button" aria-label="Switch to dark theme"><span aria-hidden="true" class="theme-icon">☾</span><span class="theme-label">Dark mode</span></button></div>
+    </header>
+
+    <main id="main-content">
+      <section class="hero" aria-labelledby="page-title">
+        <div><p class="eyebrow">YOUR MONEY, ON AUTOPILOT</p><h1 id="page-title">Subscriptions, <span>under control.</span></h1><p class="hero-copy">A clear view of what you’re paying for — and what you might have forgotten.</p></div>
+        <div class="hero-art" aria-hidden="true"><span class="orbit orbit-one"></span><span class="orbit orbit-two"></span><span class="art-card art-card-back">✦</span><span class="art-card art-card-front">₹</span><span class="art-spark">✳</span></div>
+      </section>
+
+      <section class="summary-grid" aria-label="Subscription cost summary">
+        <article class="summary-card primary-card"><div class="card-label">MONTHLY TOTAL <span class="label-icon" aria-hidden="true">↗</span></div><p class="summary-value" id="monthly-total">₹0.00</p><p class="summary-foot">your recurring spend, normalized</p></article>
+        <article class="summary-card"><div class="card-label">YEARLY OUTLOOK <span class="label-icon" aria-hidden="true">▦</span></div><p class="summary-value" id="yearly-total">₹0.00</p><p class="summary-foot">if everything stays as-is</p></article>
+        <article class="summary-card"><div class="card-label">ACTIVE SERVICES <span class="label-icon" aria-hidden="true">◉</span></div><p class="summary-value" id="service-count">0</p><p class="summary-foot">subscriptions in your list</p></article>
+      </section>
+
+      <div class="content-grid">
+        <section class="panel list-panel" aria-labelledby="list-heading">
+          <div class="section-heading"><div><p class="eyebrow">THE BREAKDOWN</p><h2 id="list-heading">Your subscriptions <span class="count-badge" id="list-count">0</span></h2></div><button type="button" class="text-button" id="sort-button" aria-label="Sort subscriptions by monthly cost">Sort by cost <span aria-hidden="true">↕</span></button></div>
+          <div id="alerts" class="alerts" aria-live="polite"></div>
+          <div id="subscription-list" class="subscription-list" aria-live="polite"></div>
+          <div id="empty-state" class="empty-state"><div class="empty-icon" aria-hidden="true">✳</div><h3>Your list starts here</h3><p>Add a subscription to see your spending at a glance.</p></div>
+        </section>
+
+        <aside class="side-column">
+          <section class="panel add-panel" aria-labelledby="add-heading">
+            <p class="eyebrow">TAKE BACK CONTROL</p><h2 id="add-heading">Add a subscription</h2>
+            <form id="subscription-form">
+              <label for="name">Service name</label><input id="name" name="name" type="text" placeholder="e.g. Streamly" maxlength="48" required autocomplete="off">
+              <div class="form-row"><div><label for="amount">Amount</label><div class="money-input"><span aria-hidden="true">₹</span><input id="amount" name="amount" type="number" min="0.01" step="0.01" placeholder="9.99" required inputmode="decimal"></div></div><div><label for="cycle">Billing cycle</label><select id="cycle" name="cycle"><option value="monthly">Monthly</option><option value="yearly">Yearly</option><option value="weekly">Weekly</option></select></div></div>
+              <label for="category">Category</label><select id="category" name="category"><option>Entertainment</option><option>Work</option><option>Music</option><option>Cloud storage</option><option>Fitness</option><option>Learning</option><option>Other</option></select>
+              <label for="last-used">When did you last use it?</label><input id="last-used" name="lastUsed" type="date" required>
+              <p class="form-hint">We’ll flag it if it’s been 30 days or more.</p>
+              <button class="submit-button" type="submit">Add to my list <span aria-hidden="true">＋</span></button>
+              <p class="form-error" id="form-error" role="alert"></p>
+            </form>
+          </section>
+          <section class="panel insights-panel" aria-labelledby="insights-heading"><div class="insights-title"><span class="insight-mark" aria-hidden="true">✦</span><div><p class="eyebrow">A QUICK READ</p><h2 id="insights-heading">Your insights</h2></div></div><div id="insights" class="insights"><p class="muted">Add subscriptions to uncover patterns in your spending.</p></div></section>
+        </aside>
+      </div>
+      <p class="privacy-note"><span aria-hidden="true">⌑</span> Your data stays in this browser. Nothing is sent anywhere.</p>
+    </main>
+    <footer><span>subtrack</span><span>Small subscriptions add up. Now you can see how.</span></footer>
+  </div>
+</body>
+</html>
